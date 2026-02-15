@@ -24,6 +24,9 @@ export function TypingEffect({
         ? totalDuration / (text.length || 1) // Avoid division by zero
         : speed;
 
+    // Split text into words to prevent breaking in the middle of a word
+    const words = text.split(" ");
+
     // Variants for container to stagger children
     const container = {
         hidden: { opacity: 0 },
@@ -65,12 +68,21 @@ export function TypingEffect({
             whileInView={triggerOnView ? "visible" : undefined}
             animate={!triggerOnView ? "visible" : undefined}
             viewport={{ once: true }}
-            className={`inline-block whitespace-pre-wrap ${className}`}
+            className={`inline-block ${className}`}
         >
-            {text.split("").map((char, index) => (
-                <motion.span variants={child} key={index} className="inline-block">
-                    {char === " " ? "\u00A0" : char}
-                </motion.span>
+            {words.map((word, index) => (
+                <span key={index} className="inline-block whitespace-nowrap">
+                    {word.split("").map((char, charIndex) => (
+                        <motion.span key={charIndex} variants={child} className="inline-block">
+                            {char}
+                        </motion.span>
+                    ))}
+                    {index < words.length - 1 && (
+                        <motion.span variants={child} className="inline-block">
+                            &nbsp;
+                        </motion.span>
+                    )}
+                </span>
             ))}
         </motion.span>
     );
