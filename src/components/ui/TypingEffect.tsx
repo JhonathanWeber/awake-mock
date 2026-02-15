@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface TypingEffectProps {
     text: string;
@@ -28,7 +28,7 @@ export function TypingEffect({
     const words = text.split(" ");
 
     // Variants for container to stagger children
-    const container = {
+    const container: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -40,7 +40,7 @@ export function TypingEffect({
     };
 
     // Variants for each character
-    const child = {
+    const child: Variants = {
         visible: {
             opacity: 1,
             y: 0,
