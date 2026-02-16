@@ -22,7 +22,7 @@ export function Proof() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.6, delay: index * 0.15, type: "spring" }}
-                        className="relative"
+                        className="relative overflow-hidden sm:overflow-visible"
                     >
                         <span className="absolute -left-4 -top-6 text-8xl font-black text-white/[0.03]">
                             0{index + 1}

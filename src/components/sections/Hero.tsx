@@ -18,9 +18,9 @@ export function Hero() {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
 
     return (
-        <section ref={sectionRef} className="section-shell relative flex h-full flex-col justify-center">
-            <div className="pointer-events-none absolute -top-16 left-0 h-56 w-56 rounded-full bg-[var(--accent)]/20 blur-3xl" />
-            <div className="pointer-events-none absolute -right-6 bottom-8 h-56 w-56 rounded-full bg-[var(--accent-2)]/20 blur-3xl" />
+        <section ref={sectionRef} className="section-shell relative flex h-full flex-col justify-center overflow-x-clip bg-transparent">
+            <div className="pointer-events-none absolute -top-16 left-0 h-56 w-56 rounded-full bg-transparent blur-3xl opacity-0" />
+            <div className="pointer-events-none absolute -right-6 bottom-8 h-56 w-56 rounded-full bg-transparent blur-3xl opacity-0" />
 
 
             <motion.div
