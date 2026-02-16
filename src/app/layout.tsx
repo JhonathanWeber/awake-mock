@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { TopNav } from "@/components/layout/TopNav";
+import { InteractiveBackground } from '@/components/ui/InteractiveBackground';
 
 export const metadata: Metadata = {
     title: "Awake Digital | Growth & Content High-End",
@@ -14,7 +15,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt-BR">
-            <body className="antialiased">
+            <body className="antialiased relative bg-slate-950 text-slate-50">
+                <InteractiveBackground />
                 <TopNav />
                 {children}
             </body>
