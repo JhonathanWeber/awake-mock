@@ -13,6 +13,7 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  overflow-x: hidden;
 }
 
 /* Ensure sections take up full height and snap correctly */
@@ -25,6 +26,8 @@ html {
 }
 
 body {
+  overflow-x: hidden;
+  position: relative;
   background:
     radial-gradient(
       1200px 600px at 15% -10%,
