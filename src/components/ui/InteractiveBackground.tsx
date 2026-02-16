@@ -38,7 +38,7 @@ export function InteractiveBackground() {
 
         const initParticles = () => {
             particles = [];
-            const spacing = 45; // Grid spacing
+            const spacing = 40; // Grid spacing
 
             // Create grid of particles
             for (let y = 0; y < canvas.height; y += spacing) {

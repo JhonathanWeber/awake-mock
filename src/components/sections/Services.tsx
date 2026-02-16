@@ -16,7 +16,7 @@ const icons = [LayoutGrid, MessageCircle, Smartphone, MapPin, Camera, Video];
 
 export function Services() {
     return (
-        <section id="servicos" className="section-shell relative flex h-full flex-col justify-center py-16 sm:py-24">
+        <section id="servicos" className="section-shell relative flex min-h-full flex-col justify-center py-20 sm:py-32 overflow-hidden">
             {/* Background Decor */}
             <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-[var(--accent)]/10 blur-[100px]" />
 
@@ -41,7 +41,7 @@ export function Services() {
                 </motion.h2>
             </div>
 
-            <div className="grid h-auto w-full grid-cols-1 gap-4 overflow-y-auto pr-2 md:grid-cols-2 md:overflow-visible lg:grid-cols-3">
+            <div className="grid h-auto w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {serviceMock.map((service, i) => {
                     const Icon = icons[i] || LayoutGrid;
                     const isLarge = i === 0 || i === 3;
@@ -53,9 +53,9 @@ export function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
-                            className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 backdrop-blur-sm transition-all md:p-6 hover:-translate-y-1 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5 hover:shadow-2xl hover:shadow-[var(--accent)]/10 ${isLarge ? 'md:col-span-2' : ''}`}
+                            className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-5 backdrop-blur-sm transition-all md:p-6 hover:-translate-y-1 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5 hover:shadow-2xl hover:shadow-[var(--accent)]/10 min-h-[260px] ${isLarge ? 'md:col-span-2' : ''}`}
                         >
-                            <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[var(--accent)]/5 blur-[40px] transition-all group-hover:bg-[var(--accent)]/20" />
+                            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[var(--accent)]/10 blur-[30px] transition-all group-hover:bg-[var(--accent)]/20" />
 
                             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-[var(--text)] transition-colors group-hover:bg-[var(--accent)] group-hover:text-white">
                                 <Icon size={20} />

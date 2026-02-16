@@ -10,7 +10,7 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div id="home-services" className="snap-start h-screen w-full flex items-center justify-center relative z-10">
+            <div id="home-services" className="snap-start min-h-screen h-auto w-full flex items-center justify-center relative z-10">
                 <Services />
             </div>
 
