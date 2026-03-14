@@ -6,15 +6,15 @@ import { createPortal, useFrame } from '@react-three/fiber'
 import { useFBO } from '@react-three/drei'
 import './shaders/simulationMaterial'
 import './shaders/dofPointsMaterial'
-import { MaterialNode } from '@react-three/fiber'
+import { Object3DNode } from '@react-three/fiber'
 import { SimulationMaterial } from './shaders/simulationMaterial'
 import { DofPointsMaterial } from './shaders/dofPointsMaterial'
 
 // Adiciona tipos das tags JSX customizadas (`simulationMaterial` e `dofPointsMaterial`) ao React Three Fiber.
 declare module '@react-three/fiber' {
     interface ThreeElements {
-        simulationMaterial: MaterialNode<any, typeof SimulationMaterial>;
-        dofPointsMaterial: MaterialNode<any, typeof DofPointsMaterial>;
+        simulationMaterial: Object3DNode<SimulationMaterial, typeof SimulationMaterial>;
+        dofPointsMaterial: Object3DNode<DofPointsMaterial, typeof DofPointsMaterial>;
     }
 }
 
@@ -134,8 +134,8 @@ export function Particles({ speed = 12, fov = 20, aperture = 1.8, focus = 5.1, c
                 <mesh>
                     <simulationMaterial ref={simRef} />
                     <bufferGeometry>
-                        <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
-                        <bufferAttribute attach="attributes-uv" count={uvs.length / 2} array={uvs} itemSize={2} />
+                        <bufferAttribute attach="attributes-position" count={positions.length / 3} args={[positions, 3]} />
+                        <bufferAttribute attach="attributes-uv" count={uvs.length / 2} args={[uvs, 2]} />
                     </bufferGeometry>
                 </mesh>,
                 scene
@@ -143,7 +143,7 @@ export function Particles({ speed = 12, fov = 20, aperture = 1.8, focus = 5.1, c
             <points ref={pointsRef} scale={[radius, radius, radius]} {...props}>
                 <dofPointsMaterial ref={renderRef} />
                 <bufferGeometry>
-                    <bufferAttribute attach="attributes-position" count={particles.length / 3} array={particles} itemSize={3} />
+                    <bufferAttribute attach="attributes-position" count={particles.length / 3} args={[particles, 3]} />
                 </bufferGeometry>
             </points>
         </>
