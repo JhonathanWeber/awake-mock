@@ -6,15 +6,15 @@ import { createPortal, useFrame } from '@react-three/fiber'
 import { useFBO } from '@react-three/drei'
 import './shaders/simulationMaterial'
 import './shaders/dofPointsMaterial'
-import { Object3DNode } from '@react-three/fiber'
+import { ThreeElement } from '@react-three/fiber'
 import { SimulationMaterial } from './shaders/simulationMaterial'
 import { DofPointsMaterial } from './shaders/dofPointsMaterial'
 
 // Adiciona tipos das tags JSX customizadas (`simulationMaterial` e `dofPointsMaterial`) ao React Three Fiber.
 declare module '@react-three/fiber' {
     interface ThreeElements {
-        simulationMaterial: Object3DNode<SimulationMaterial, typeof SimulationMaterial>;
-        dofPointsMaterial: Object3DNode<DofPointsMaterial, typeof DofPointsMaterial>;
+        simulationMaterial: ThreeElement<typeof SimulationMaterial>;
+        dofPointsMaterial: ThreeElement<typeof DofPointsMaterial>;
     }
 }
 
