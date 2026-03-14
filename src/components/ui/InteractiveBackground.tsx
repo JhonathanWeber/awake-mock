@@ -75,7 +75,7 @@ export function InteractiveBackground() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
+                const p = particles[i];
 
                 // Sway logic: Update angles for gentle movement
                 p.angle += p.speed;
@@ -87,18 +87,18 @@ export function InteractiveBackground() {
                 const targetY = p.baseY + swayY;
 
                 // Distance from mouse
-                let dx = mouse.x - p.x;
-                let dy = mouse.y - p.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
+                const dx = mouse.x - p.x;
+                const dy = mouse.y - p.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < mouse.radius) {
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
 
-                    let maxDistance = mouse.radius;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * p.density;
-                    let directionY = forceDirectionY * force * p.density;
+                    const maxDistance = mouse.radius;
+                    const force = (maxDistance - distance) / maxDistance;
+                    const directionX = forceDirectionX * force * p.density;
+                    const directionY = forceDirectionY * force * p.density;
 
                     // Repel!!
                     p.x -= directionX;
@@ -108,11 +108,11 @@ export function InteractiveBackground() {
                 } else {
                     // Return to sway target (Elastic effect)
                     if (p.x !== targetX) {
-                        let dx = p.x - targetX;
+                        const dx = p.x - targetX;
                         p.x -= dx / 15; // Slower restoration for fluidity
                     }
                     if (p.y !== targetY) {
-                        let dy = p.y - targetY;
+                        const dy = p.y - targetY;
                         p.y -= dy / 15;
                     }
                     p.size = 1.5;
